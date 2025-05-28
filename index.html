@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transpositor de Canciones</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <h1><i class="fas fa-music"></i> Transpositor de Canciones</h1>
+            <p class="subtitle">Cambia el tono de tus canciones al instante con notación inglesa o latina</p>
+        </div>
+
+        <div class="controls-section">
+            <div class="controls-grid">
+                <div class="transpose-section">
+                    <button class="transpose-btn" onclick="transpose(-1)" title="Bajar medio tono">
+                        <i class="fas fa-minus"></i>
+                    </button>
+                    <div class="current-key">
+                        <div class="current-key-label">Tono actual</div>
+                        <div class="current-key-value" id="currentKey">Original</div>
+                    </div>
+                    <button class="transpose-btn" onclick="transpose(1)" title="Subir medio tono">
+                        <i class="fas fa-plus"></i>
+                    </button>
+                </div>
+
+                <div class="action-buttons">
+                    <button class="btn btn-notation" onclick="toggleNotation()">
+                        <i class="fas fa-exchange-alt"></i>
+                        <span id="notationText">Inglesa (C D E)</span>
+                    </button>
+
+                    <button class="btn btn-reset" onclick="resetTransposition()">
+                        <i class="fas fa-undo"></i>
+                        Resetear
+                    </button>
+                </div>
+            </div>
+
+            <div class="quick-controls">
+                <span class="quick-controls-label">Transposición rápida:</span>
+                <button class="quick-btn" onclick="quickTranspose(-2)">-1 tono</button>
+                <button class="quick-btn" onclick="quickTranspose(-1)">-½ tono</button>
+                <button class="quick-btn" onclick="quickTranspose(1)">+½ tono</button>
+                <button class="quick-btn" onclick="quickTranspose(2)">+1 tono</button>
+            </div>
+        </div>
+
+        <div class="content-grid">
+            <div class="input-panel">
+                <div class="panel-header">
+                    <i class="fas fa-edit panel-icon"></i>
+                    <h2 class="panel-title">Texto Original</h2>
+                </div>
+                <textarea id="inputText" class="text-input"
+                    placeholder="Pega aquí el texto de tu canción con acordes..." oninput="processText()"></textarea>
+            </div>
+
+            <div class="output-panel">
+                <div class="panel-header">
+                    <i class="fas fa-music panel-icon"></i>
+                    <h2 class="panel-title">Resultado Transpuesto</h2>
+                </div>
+                <div class="notation-badge" id="notationIndicator">
+                    <i class="fas fa-music"></i>
+                    <span>Notación Inglesa</span>
+                </div>
+                <div id="outputText" class="output-display">El texto transpuesto aparecerá aquí automáticamente..</div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>
+                <i class="fas fa-keyboard"></i>
+                Sube o baja medios tonos para encontrar la tonalidad perfecta
+                <i class="fas fa-exchange-alt"></i>
+                Cambia entre notación inglesa y latina
+                <i class="fas fa-heart"></i>
+            </p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
