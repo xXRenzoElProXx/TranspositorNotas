@@ -335,8 +335,8 @@ body::before {
   border: 2px solid rgba(102, 126, 234, 0.2);
   border-radius: 12px;
   padding: 18px;
-  font-size: 1rem;
-  font-family: 'SF Mono', Monaco, monospace;
+  font-size: 11pt; 
+  font-family: 'Calibri', sans-serif;
   resize: none;
   outline: none;
   transition: var(--transition);
@@ -356,7 +356,8 @@ body::before {
   border-radius: 12px;
   padding: 18px;
   font-size: 1rem;
-  font-family: 'SF Mono', Monaco, monospace;
+  font-size: 11pt; 
+  font-family: 'Calibri', sans-serif; 
   line-height: 1.6;
   overflow-y: auto;
   white-space: pre-wrap;
@@ -369,7 +370,8 @@ body::before {
   padding: 3px 8px;
   border-radius: 6px;
   font-weight: 700;
-  font-size: 0.9rem;
+  font-size: 10pt;
+  font-family: 'Times New Roman', Times, serif;
   display: inline-block;
   margin: 1px;
   box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
@@ -452,7 +454,6 @@ body::before {
   transform: translateY(0);
 }
 
-/* Responsive */
 @media (max-width: 1024px) {
   .content-grid {
     grid-template-columns: 1fr;
