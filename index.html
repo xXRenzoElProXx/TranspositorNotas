@@ -7,13 +7,16 @@
     <title>Transpositor de Canciones</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="file.png" type="image/x-icon">
 </head>
 
 <body>
     <div class="container">
         <div class="header">
-            <h1><i class="fas fa-music"></i> Transpositor de Canciones</h1>
-            <p class="subtitle">Cambia el tono de tus canciones al instante con notación inglesa o latina</p>
+            <div class="header-content">
+                <h1><i class="fas fa-music"></i>Transpositor de Canciones</h1>
+                <p class="subtitle">Cambia el tono de tus canciones al instante con notación inglesa o latina</p>
+            </div>
         </div>
 
         <div class="controls-section">
@@ -56,8 +59,14 @@
         <div class="content-grid">
             <div class="input-panel">
                 <div class="panel-header">
-                    <i class="fas fa-edit panel-icon"></i>
-                    <h2 class="panel-title">Texto Original</h2>
+                    <div class="panel-header-left">
+                        <i class="fas fa-edit panel-icon"></i>
+                        <h2 class="panel-title">Texto Original</h2>
+                    </div>
+                    <button class="btn btn-clear" onclick="clearText()" title="Borrar todo el texto">
+                        <i class="fas fa-trash"></i>
+                        Borrar
+                    </button>
                 </div>
                 <textarea id="inputText" class="text-input"
                     placeholder="Pega aquí el texto de tu canción con acordes..." oninput="processText()"></textarea>
@@ -65,26 +74,36 @@
 
             <div class="output-panel">
                 <div class="panel-header">
-                    <i class="fas fa-music panel-icon"></i>
-                    <h2 class="panel-title">Resultado Transpuesto</h2>
+                    <div class="panel-header-left">
+                        <i class="fas fa-music panel-icon"></i>
+                        <h2 class="panel-title">Resultado Transpuesto</h2>
+                    </div>
+                    <button class="btn btn-copy" onclick="copyTransposedText()" title="Copiar texto transpuesto">
+                        <i class="fas fa-copy"></i>
+                        Copiar
+                    </button>
                 </div>
                 <div class="notation-badge" id="notationIndicator">
                     <i class="fas fa-music"></i>
                     <span>Notación Inglesa</span>
                 </div>
-                <div id="outputText" class="output-display">El texto transpuesto aparecerá aquí automáticamente..</div>
+                <div id="outputText" class="output-display">El texto transpuesto aparecerá aquí automáticamente...</div>
             </div>
         </div>
 
         <div class="footer">
             <p>
                 <i class="fas fa-keyboard"></i>
-                Sube o baja medios tonos para encontrar la tonalidad perfecta
+                <span>Sube o baja medios tonos para encontrar la tonalidad perfecta</span>
                 <i class="fas fa-exchange-alt"></i>
-                Cambia entre notación inglesa y latina
+                <span>Cambia entre notación inglesa y latina</span>
                 <i class="fas fa-heart"></i>
             </p>
         </div>
+    </div>
+
+    <div id="copyNotification" class="copy-success">
+        <i class="fas fa-check"></i> ¡Texto copiado al portapapeles!
     </div>
 
     <script src="script.js"></script>
